@@ -1,4 +1,4 @@
-import { createMember, updateMember, createTrainer, updateTrainer } from "./requests.js";
+import { createMember, updateMember, createTrainer, updateTrainer , deleteMember } from "./requests.js";
 
 function updateMemberTable(members) {
   let table = document.getElementById("myTable");
@@ -40,7 +40,7 @@ function updateMemberTable(members) {
             const deleteButton = document.createElement("button");
             deleteButton.className = "delete";
             deleteButton.type = "button";
-            // deleteButton.addEventListener('click', deleteMember);
+            deleteButton.addEventListener('click', deleteMember(member.member_id,member.username,member.member_password,member.full_name,member.email,member.monthly_cost,member.is_active));
             deleteButton.innerHTML = "delete";
 
             cell.appendChild(deleteButton);
@@ -64,7 +64,7 @@ function updateTrainerTable(trainers){
   for (const member of trainers) {
     const newRow = document.createElement("tr");
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       const cell = document.createElement("td");
 
       switch (i) {
@@ -84,6 +84,17 @@ function updateTrainerTable(trainers){
         case 4:
           cell.innerHTML = member.email;
           cell.classList.add("not_necessary");
+          break;
+
+        case 5:
+          // Create a delete button for the last cell
+          const deleteButton = document.createElement("button");
+          deleteButton.className = "delete";
+          deleteButton.type = "button";  // deleteButton.addEventListener('click', deleteMember);
+          deleteButton.innerHTML = "delete";
+          cell.appendChild(deleteButton);
+            
+  
           break;
       }
 

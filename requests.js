@@ -151,3 +151,40 @@ export function updateTrainer(
       return result;
     });
 }
+
+
+export function deleteMember(
+  memberId,
+  username,
+  password,
+  fullName,
+  email,
+  monthlyCost,
+  isActive
+) {
+  const bearerToken = localStorage.getItem("token");
+
+  const member = {
+    member_id: memberId,
+    username: username,
+    member_password: password,
+    full_name: fullName,
+    email: email,
+    monthly_cost: monthlyCost,
+    fitness_goal: "",
+    is_active: isActive,
+  };
+  return fetch(baseUrl + `/admin/member`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${bearerToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(member),
+  })
+    .then((result) => result.json())
+    .then((result) => {
+      console.log(result);
+      return result;
+    });
+}
