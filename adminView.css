@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FED8B1; /* Orange background with low saturation */
+    width: 100%;
+    
+}
+  
+.container {
+    display: inline;
+    height: 100%;
+}
+
+.title{
+    margin: 30px;
+}
+
+.subTitle{
+    margin: 10px 40px;
+}
+
+.subTitle2{
+    margin: 10px -20px;
+
+}
+
+#membersTable{
+    width: 90vw;
+    margin: auto;
+    display: grid;
+}
+  
+form , #membersTable {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
+label {
+    display: inline;
+    margin-bottom: 8px;
+}
+
+.part{
+    display: inline;
+    margin-bottom: 8px;
+
+}
+  
+input {
+    width: auto;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+  
+.delete {
+    width: 70px;
+    padding: 10px;
+    background-color: #fb4d26; /* Orange color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+.delete:hover {
+    background-color: #ff0d00; /* Darker orange on hover */
+}
+
+
+.update {
+    width: 70px;
+    padding: 10px;
+    background-color: #6bf441; /* Orange color */
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+.update:hover {
+    background-color: #2eb900; /* Darker orange on hover */
+}
+
+
+tr1  {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td{
+    width: 15vw;
+    height: 30px;
+    text-align: center;
+}
+
+
+@media (max-width: 840px) {
+    #membersTable{
+        width: 80vw;
+    }
+
+    .not_necessary{
+        display: none;
+    }
+    
+    
+}
+
+.form1{
+    width: 40vw;
+    margin: auto;
+    margin-bottom: 20px;
+    height: 100vh;
+}
+
+form{
+    display: grid;
+}
+
+.forms{
+    display: grid;
+    grid-template-columns: 40vw 40vw;
+    grid-gap: 50px;
+    margin: auto; /* Center horizontally */
+    max-width: 80vw;
+    margin-bottom: 20px;
+
+}
+
+.submitBtn {
+    width: 100%;
+    padding: 10px;
+    background-color: #FFA500; /* Orange color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+.submitBtn:hover {
+    background-color: #FF8C00; /* Darker orange on hover */
+}

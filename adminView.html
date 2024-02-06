@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="adminView.css">
+  <script src="adminView.js"></script>
+  <title>Admin Page</title>
+</head>
+<body>
+  <H1 class="title">Admin Page</H1>
+
+  <div>
+    <H2 class="subTitle">MembersTable</H2>
+  </div>
+
+  <div class="container">
+    <div id="membersTable">
+      <div class="part">
+        <table id="myTable">
+          <tr>
+            <th>id</th>
+            <th>username</th>
+            <th class="not_necessary">password</th>
+            <th>fullName</th>
+            <th class="not_necessary">email</th>
+            <th>monthlyCost</th>
+            <th class="not_necessary">isActive</th>
+            <th></th>
+          </tr>
+          
+        </table>
+      </div>    
+
+    </div>
+
+    <br>
+
+    <div class="forms">
+      <div class="form1">
+        <h2 class="subTitle2">Add a new member</h2>
+  
+        <form>
+            <label for="userId">ID:</label>
+            <input type="text" id="userId" name="userId"><br>
+    
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br>
+    
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br>
+    
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName"><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br>
+    
+            <label for="monthlyCost">Monthly Cost:</label>
+            <input type="number" id="monthlyCost" name="monthlyCost"><br>
+    
+            <div>
+              <label for="isActive">Is Active:</label>
+              <input type="checkbox" id="isActive" name="isActive" checked>  
+            </div>
+            <br>
+            
+            <button class="submitBtn" type="button" onclick="">Add</button>
+    
+        </form>
+      </div>
+
+      <div class="form1">
+        <h2 class="subTitle2">Update member</h2>
+  
+        <form>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br>
+    
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br>
+    
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName"><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br>
+    
+            <label for="monthlyCost">Monthly Cost:</label>
+            <input type="number" id="monthlyCost" name="monthlyCost"><br>
+    
+            <div>
+              <label for="isActive">Is Active:</label>
+              <input type="checkbox" id="isActive" name="isActive" checked>  
+            </div>
+            <br>
+            
+            <button class="submitBtn" type="button" onclick="">Add</button>
+    
+        </form>
+      </div>
+    </div>
+    
+    
+  </div>
+
+</body>
+</html>
