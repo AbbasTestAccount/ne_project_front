@@ -30,8 +30,14 @@ body {
     margin: auto;
     display: grid;
 }
+
+#trainersTable{
+    width: 90vw;
+    margin: auto;
+    display: grid;
+}
   
-form , #membersTable {
+form , #membersTable , #trainersTable{
     background-color: white;
     padding: 20px;
     border-radius: 8px;
@@ -98,7 +104,7 @@ th, td{
 }
 
 
-@media (max-width: 840px) {
+@media (max-width: 1000px) {
     #membersTable{
         width: 80vw;
     }
@@ -106,15 +112,19 @@ th, td{
     .not_necessary{
         display: none;
     }
+
+    .forms{
+        flex-direction: column;
+        align-items: center;
+    }
+    
     
     
 }
 
 .form1{
     width: 40vw;
-    margin: auto;
-    margin-bottom: 20px;
-    height: 100vh;
+    margin-bottom: 60px;
 }
 
 form{
@@ -122,9 +132,9 @@ form{
 }
 
 .forms{
-    display: grid;
-    grid-template-columns: 40vw 40vw;
-    grid-gap: 50px;
+    display: flex;
+    /* flex-wrap: wrap; */
+    gap: 50px;
     margin: auto; /* Center horizontally */
     max-width: 80vw;
     margin-bottom: 20px;

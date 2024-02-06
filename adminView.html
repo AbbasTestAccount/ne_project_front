@@ -31,7 +31,26 @@
         </div>
       </div>
 
-      <br />
+      <br>
+
+      <div>
+        <h2 class="subTitle">TrainersTable</h2>
+      </div>
+
+      <div id="trainersTable">
+        <div class="part">
+          <table id="myTable2">
+            <tr>
+              <th>id</th>
+              <th>username</th>
+              <th class="not_necessary">password</th>
+              <th>fullName</th>
+              <th class="not_necessary">email</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <br>
 
       <div class="forms">
         <div class="form1">
@@ -105,7 +124,61 @@
             <button class="submitBtn" type="submit">Update</button>
           </form>
         </div>
+
+
+        <!-- ======================== -->
+
+        <div class="form1">
+          <h2 class="subTitle2">Add a new Trainer</h2>
+
+          <form id="createTrainer">
+            <label for="username">Username:</label>
+            <input type="text" id="create_Tusername" name="username" /><br />
+
+            <label for="password">Password:</label>
+            <input type="password" id="create_Tpassword" name="password" /><br />
+
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="create_TfullName" name="fullName" /><br />
+
+            <label for="email">Email:</label>
+            <input type="email" id="create_Temail" name="email" /><br />
+            <br />
+
+            <button class="submitBtn" type="submit">Create</button>
+          </form>
+        </div>
+
+        <div class="form1">
+          <h2 class="subTitle2">Update Trainer</h2>
+
+          <form id="updateTrainer">
+            <label for="userId">ID:</label>
+            <input type="text" id="update_trainer_id" name="userId" /><br />
+
+            <label for="username">Username:</label>
+            <input type="text" id="update_Tusername" name="username" /><br />
+
+            <label for="password">Password:</label>
+            <input type="password" id="update_Tpassword" name="password" /><br />
+
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="update_TfullName" name="fullName" /><br />
+
+            <label for="email">Email:</label>
+            <input type="email" id="update_Temail" name="email" /><br />
+
+
+            <button class="submitBtn" type="submit">Update</button>
+          </form>
+        </div>
+
       </div>
+
+      <!------------------------------------------------------->
+
+
+
     </div>
     <script type="module" src="./adminView.js"></script>
   </body>

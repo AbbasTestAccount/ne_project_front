@@ -1,6 +1,6 @@
-import { createMember, updateMember } from "./requests.js";
+import { createMember, updateMember, createTrainer, updateTrainer } from "./requests.js";
 
-function updateTable(members) {
+function updateMemberTable(members) {
   let table = document.getElementById("myTable");
 
   for (const member of members) {
@@ -36,7 +36,7 @@ function updateTable(members) {
           break;
         case 7:
           // Create a delete button for the last cell
-          if (member.isActive == false) {
+          if (member.is_active == false) {
             const deleteButton = document.createElement("button");
             deleteButton.className = "delete";
             deleteButton.type = "button";
@@ -58,7 +58,43 @@ function updateTable(members) {
   }
 }
 
-async function fetchData() {
+function updateTrainerTable(trainers){
+  let table2 = document.getElementById("myTable2");
+
+  for (const member of trainers) {
+    const newRow = document.createElement("tr");
+
+    for (let i = 0; i < 5; i++) {
+      const cell = document.createElement("td");
+
+      switch (i) {
+        case 0:
+          cell.innerHTML = member.trainer_id;
+          break;
+        case 1:
+          cell.innerHTML = member.username;
+          break;
+        case 2:
+          cell.innerHTML = member.trainer_password;
+          cell.classList.add("not_necessary");
+          break;
+        case 3:
+          cell.innerHTML = member.full_name;
+          break;
+        case 4:
+          cell.innerHTML = member.email;
+          cell.classList.add("not_necessary");
+          break;
+      }
+
+      // Append the cell to the new row
+      newRow.appendChild(cell);
+    }
+    table2.appendChild(newRow);
+  }
+}
+
+async function fetchMemberData() {
   const authToken = localStorage.getItem("token");
 
   try {
@@ -85,9 +121,39 @@ async function fetchData() {
   }
 }
 
+async function fetchTrainerData(){
+  const authToken = localStorage.getItem("token");
+
+  try {
+    const response = await fetch("http://localhost:3000/trainer/all", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    let trainers = data.trainers;
+    console.log(trainers);
+
+    return trainers;
+  } catch (error) {
+    console.error("Fetch error:", error);
+    throw error; // Rethrow the error to handle it outside the function if needed
+  }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
-  let members = await fetchData();
-  updateTable(members); // Now you can call updateTable after fetchData
+  let members = await fetchMemberData();
+  let trainers = await fetchTrainerData();
+  updateMemberTable(members);
+  updateTrainerTable(trainers);
+
 });
 
 document.getElementById("createMember").addEventListener("submit", (event) => {
@@ -100,6 +166,20 @@ document.getElementById("createMember").addEventListener("submit", (event) => {
   let isActive = document.getElementById("create_isActive").checked;
   console.log(username, password, fullName, email, monthlyCost, isActive);
   createMember(username, password, fullName, email, monthlyCost, isActive).then(
+    (result) => {
+      console.log(result);
+    }
+  );
+});
+
+document.getElementById("createTrainer").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const username = document.getElementById("create_Tusername").value;
+  const password = document.getElementById("create_Tpassword").value;
+  const fullName = document.getElementById("create_TfullName").value;
+  const email = document.getElementById("create_Temail").value;
+  console.log(username, password, fullName, email );
+  createTrainer(username, password, fullName, email).then(
     (result) => {
       console.log(result);
     }
@@ -134,6 +214,31 @@ document.getElementById("updateMember").addEventListener("submit", (event) => {
     fitnessGoal,
     monthlyCost,
     isActive
+  ).then((result) => {
+    console.log(result);
+  });
+});
+
+document.getElementById("updateTrainer").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const trainerId = document.getElementById("update_trainer_id").value;
+  const username = document.getElementById("update_Tusername").value;
+  const password = document.getElementById("update_Tpassword").value;
+  const fullName = document.getElementById("update_TfullName").value;
+  const email = document.getElementById("update_Temail").value;
+
+  console.log(
+    username,
+    password,
+    fullName,
+    email
+  );
+  updateTrainer(
+    trainerId,
+    username,
+    password,
+    fullName,
+    email
   ).then((result) => {
     console.log(result);
   });
