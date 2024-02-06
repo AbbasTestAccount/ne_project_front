@@ -1,4 +1,4 @@
-import { createMember, updateMember, createTrainer, updateTrainer , deleteMember } from "./requests.js";
+import { createMember, updateMember, createTrainer, updateTrainer , deleteMember, deleteTrainer } from "./requests.js";
 
 function updateMemberTable(members) {
   let table = document.getElementById("myTable");
@@ -90,7 +90,8 @@ function updateTrainerTable(trainers){
           // Create a delete button for the last cell
           const deleteButton = document.createElement("button");
           deleteButton.className = "delete";
-          deleteButton.type = "button";  // deleteButton.addEventListener('click', deleteMember);
+          deleteButton.type = "button";  
+          deleteButton.addEventListener('click', deleteTrainer(member.trainer_id, member.username, member.trainer_password, member.full_name, member.email));
           deleteButton.innerHTML = "delete";
           cell.appendChild(deleteButton);
             

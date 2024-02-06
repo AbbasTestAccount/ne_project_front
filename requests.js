@@ -188,3 +188,36 @@ export function deleteMember(
       return result;
     });
 }
+
+
+export function deleteTrainer(
+  trainerId,
+  username,
+  password,
+  fullName,
+  email
+) {
+  const bearerToken = localStorage.getItem("token");
+
+  const trainer = {
+    trainer_id: trainerId,
+    username: username,
+    trainer_password: password,
+    full_name: fullName,
+    email: email
+  };
+
+  return fetch(baseUrl + `/admin/trainer`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${bearerToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(trainer),
+  })
+    .then((result) => result.json())
+    .then((result) => {
+      console.log(result);
+      return result;
+    });
+}
